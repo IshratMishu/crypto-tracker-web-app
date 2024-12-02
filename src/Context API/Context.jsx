@@ -9,10 +9,11 @@ const Context = ({ children }) => {
     const [searchAsset, setSearchAsset] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [coinSearch, setCoinSearch] = useState("");
+    const [currency, setCurrency] = useState("usd");
 
     const getApiAssets = async () => {
         try {
-            const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&&ids=${coinSearch}&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`, {
+            const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&&ids=${coinSearch}&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`, {
                 headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }
             })
             
@@ -38,7 +39,7 @@ const Context = ({ children }) => {
 
     useEffect(() => {
         getApiAssets();
-    }, [coinSearch])
+    }, [coinSearch, currency])
 
     const values = {
         assets,
@@ -46,7 +47,9 @@ const Context = ({ children }) => {
         searchAsset,
         setSearchResults,
         getSearchAsset,
-        setCoinSearch
+        setCoinSearch,
+        currency, 
+        setCurrency
     }
 
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import Currency from './Currency';
 import Sort from './Sort';
+import { BiReset } from "react-icons/bi";
 
 const Filter = () => {
     return (
@@ -9,6 +10,7 @@ const Filter = () => {
             <Search></Search>
             <Currency></Currency>
             <Sort></Sort>
+            <BiReset className='text-2xl text-[--blue]'/>
         </div>
     );
 };

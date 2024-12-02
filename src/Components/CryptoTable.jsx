@@ -6,7 +6,7 @@ import { CiStar } from "react-icons/ci";
 
 
 const CryptoTable = () => {
-    const { assets } = useCryptoContext();
+    const { assets , currency} = useCryptoContext();
 
 
     return (
@@ -38,7 +38,7 @@ const CryptoTable = () => {
                                 </td>
                                 <td className="py-4 text-white">{asset.name}</td>
                                 <td className="py-4 text-white">
-                                    {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(
+                                    {new Intl.NumberFormat('en-US', { style: 'currency', currency: currency }).format(
                                         asset.current_price
                                     )}
                                 </td>
