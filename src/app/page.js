@@ -1,3 +1,4 @@
+import CryptoTable from "@/Components/CryptoTable";
 
 
 export default function Home() {
@@ -5,7 +6,7 @@ export default function Home() {
     <div>
       <main>
         
-      
+      <CryptoTable></CryptoTable>
       </main>
     </div>
   );
