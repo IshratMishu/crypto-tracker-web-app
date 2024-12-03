@@ -1,16 +1,27 @@
 'use client'
 import useCryptoContext from '@/Hooks/useCryptoContext';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { CiStar } from "react-icons/ci";
 // import Pagination from './Pagination';
-
 import dynamic from 'next/dynamic';
+import CoinDetails from './CoinDetails';
+
 
 const Pagination = dynamic(() => import('../Components/Pagination'), { ssr: false });
 
 const CryptoTable = () => {
-    const { assets, currency } = useCryptoContext();
+    const { assets, currency, getCoinById, coin } = useCryptoContext();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = async (asset) => {
+        await getCoinById(asset.id); 
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div>
@@ -51,7 +62,7 @@ const CryptoTable = () => {
                                         <td className="py-4 flex items-center gap-2 uppercase text-white">
                                             <CiStar className='text-2xl cursor-pointer text-[--gray-100] hover:text-[--blue]' />
                                             <Image height={50} width={50} src={asset.image} alt={asset.name} className='w-5 h-5'></Image>
-                                            <span>{asset.symbol}</span>
+                                            <span className='cursor-pointer' onClick={() => handleOpenModal(asset)}>{asset.symbol}</span>
                                         </td>
                                         <td className="py-4 text-white">{asset.name}</td>
                                         <td className="py-4 text-white">
@@ -79,6 +90,11 @@ const CryptoTable = () => {
                 <span className='text-white'>Data provided by <a className='text-[--blue]' target="_blank" rel="noopener noreferrer" href="https://www.coingecko.com/">CoinGecko</a></span>
                 <Pagination></Pagination>
             </div>
+
+            {/* Modal */}
+      {isModalOpen && (
+        <CoinDetails coin={coin} onClose={handleCloseModal} />
+      )}
         </div>
     );
 };

@@ -14,13 +14,14 @@ const Context = ({ children }) => {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(250);
     const [perPage, setPerPage] = useState(10);
+    const [coin, setCoin] = useState([]);
 
     const getApiAssets = async () => {
         try {
             const response = await axios.get(`https://api.coingecko.com/api/v3/coins/list`, {
                 headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }
             })
-            
+
             setTotalPages(response.data.length);
         } catch (error) {
             console.log(error);
@@ -31,7 +32,7 @@ const Context = ({ children }) => {
             const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`, {
                 headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }
             })
-            
+
             setAssets(response.data);
         } catch (error) {
             console.log(error);
@@ -51,7 +52,19 @@ const Context = ({ children }) => {
         }
     }
 
-    const resetFunction = ()=>{
+
+    const getCoinById = async (coinId) => {
+        try {
+            const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=true&sparkline=false`, {
+                headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }
+            })
+            setCoin(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const resetFunction = () => {
         setPage(1);
         setCoinSearch("")
     }
@@ -67,16 +80,18 @@ const Context = ({ children }) => {
         setSearchResults,
         getSearchAsset,
         setCoinSearch,
-        currency, 
+        currency,
         setCurrency,
-        sortBy, 
+        sortBy,
         setSortBy,
-        page, 
+        page,
         setPage,
         totalPages,
         resetFunction,
         perPage,
-        setPerPage
+        setPerPage,
+        getCoinById,
+        coin
     }
 
     return (
