@@ -13,6 +13,7 @@ const Currency = () => {
         setCurrency(val);
         currencyRef.current.value = ""
     }
+    
     return (
         <div>
             <form className='flex items-center text-sm' onSubmit={handleCurrency}>

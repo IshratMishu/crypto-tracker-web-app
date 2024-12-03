@@ -1,3 +1,4 @@
+'use client'
 import CryptoTable from "@/Components/CryptoTable";
 import Filter from "@/Components/Filter";
 
