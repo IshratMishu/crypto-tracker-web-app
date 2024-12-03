@@ -21,3 +21,17 @@
 body {
   background: var(--background);
 } 
+
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px; 
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: var(--gray-100);  
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
