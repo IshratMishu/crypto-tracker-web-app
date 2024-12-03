@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { BiSolidUpArrow } from 'react-icons/bi';
 import { RxCross1 } from "react-icons/rx";
+import Chart from './Chart';
 
 const Indicator = ({ currentPrice, high, low }) => {
     const [green, setGreen] = useState();
@@ -41,7 +42,7 @@ const CoinDetails = ({ coin, onClose }) => {
                         className="absolute top-1 right-1 hover:text-[--blue]"><RxCross1 /> </button>
                 </div>
 
-                <div className='flex items-center gap-5 p-4'>
+                <div className='flex gap-5 p-4'>
 
                     <div className='w-[45%] h-full flex flex-col'>
                         <div className='flex items-center justify-between'>
@@ -138,7 +139,7 @@ const CoinDetails = ({ coin, onClose }) => {
                     </div>
 
                     <div className='flex flex-col w-[55%] h-full' >
-                        kk
+                       <Chart id={coin.id}></Chart>
                     </div>
                 </div>
             </div>
