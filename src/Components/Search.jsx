@@ -19,6 +19,7 @@ const Search = () => {
     const handleSelectedCoin = (coin) => {
         setCoinSearch(coin);
         setSearchText("");
+        console.log(setSearchResults);
         setSearchResults("");
     }
 
@@ -33,10 +34,16 @@ const Search = () => {
 
             {
                 searchResults?.length > 0 ?
-                    <ul className='absolute top-2/5 w-80 h-80 rounded overflow-x-hidden mt-4 px-4 py-2 bg-[--gray-200] shadow-lg scrollbar-custom '> 
+                    <ul className='absolute top-2/5 w-80 h-80 rounded overflow-x-hidden mt-4 px-4 py-2 bg-[--gray-200] shadow-lg scrollbar-custom '>
                         {searchResults?.map((coin) => (
                             <li key={coin.id} className="py-1 text-[--gray-100] flex items-center gap-1 cursor-pointer" onClick={() => handleSelectedCoin(coin.id)}>
-                                <Image height={50} width={50} src={coin.thumb}  alt={coin.name}  className='h-4 w-4'></Image>
+                                <Image
+                                    height={50}
+                                    width={50}
+                                    src={coin.thumb?.startsWith('http') ? coin.thumb : '/missing_thumb.png'}
+                                    alt={coin.name || 'Placeholder'}
+                                    className='h-4 w-4'
+                                />
                                 <span>{coin.name} ({coin.symbol})</span>
                             </li>
                         ))}

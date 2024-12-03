@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { BiSolidUpArrow } from 'react-icons/bi';
 import { RxCross1 } from "react-icons/rx";
 import Chart from './Chart';
+import { FaDiscord, FaFacebook, FaGithub, FaReddit, FaTwitter } from 'react-icons/fa';
+import { FaSquareXTwitter } from 'react-icons/fa6';
 
 const Indicator = ({ currentPrice, high, low }) => {
     const [green, setGreen] = useState();
@@ -42,7 +44,7 @@ const CoinDetails = ({ coin, onClose }) => {
                         className="absolute top-1 right-1 hover:text-[--blue]"><RxCross1 /> </button>
                 </div>
 
-                <div className='flex gap-5 p-4'>
+                <div className='flex gap-5 p-4 relative'>
 
                     <div className='w-[45%] h-full flex flex-col'>
                         <div className='flex items-center justify-between'>
@@ -139,7 +141,34 @@ const CoinDetails = ({ coin, onClose }) => {
                     </div>
 
                     <div className='flex flex-col w-[55%] h-full' >
-                       <Chart id={coin.id}></Chart>
+                        <Chart id={coin.id}></Chart>
+                        <div className='mt-4 text-sm space-y-2'>
+                            <h3 className='text-[--gray-100]'>Market Cap Rank: <span className='text-white font-medium'>{coin.market_cap_rank}</span></h3>
+                            <h3 className='text-[--gray-100]'>Watchlist Portfolio Users: <span className='text-white font-medium'>{coin.watchlist_portfolio_users}</span></h3>
+                        </div>
+                    </div>
+
+                    <div className='flex items-center gap-3 absolute bottom-6 right-6 text-2xl text-[--blue]'>
+                        {
+                            coin?.links?.repos_url?.github[0] &&
+                            <a href={coin?.links?.repos_url?.github[0]} target='_blank'><FaGithub /></a>
+                        }
+
+                        {
+                            coin?.links?.twitter_screen_name &&
+                            <a href={`https://x.com/${coin?.links?.twitter_screen_name}`} target='_blank'><FaSquareXTwitter /></a>
+                        }
+
+                        {
+                            coin?.links?.subreddit_url &&
+                            <a href={coin?.links?.subreddit_url} target='_blank'><FaReddit /></a>
+                        }
+
+                        {
+                            coin?.links?.facebook_username &&
+                            <a href={`https://www.facebook.com/${coin?.links?.facebook_username}`} target='_blank'><FaFacebook /></a>
+                        }
+
                     </div>
                 </div>
             </div>
