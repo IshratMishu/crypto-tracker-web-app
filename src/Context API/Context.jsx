@@ -15,6 +15,7 @@ const Context = ({ children }) => {
     const [totalPages, setTotalPages] = useState(250);
     const [perPage, setPerPage] = useState(10);
     const [coin, setCoin] = useState([]);
+    const [trending, setTrending] = useState([]);
 
     const getApiAssets = async () => {
         try {
@@ -64,6 +65,18 @@ const Context = ({ children }) => {
         }
     }
 
+    const getTrending = async () => {
+        try {
+            const response = await axios.get(`https://api.coingecko.com/api/v3/search/trending`, {
+                headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }
+            })
+            setTrending(response.data.coins);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     const resetFunction = () => {
         setPage(1);
         setCoinSearch("")
@@ -71,7 +84,12 @@ const Context = ({ children }) => {
 
     useEffect(() => {
         getApiAssets();
+        getTrending();
     }, [coinSearch, currency, sortBy, page, perPage])
+
+    useEffect(() => {
+        getTrending();
+    }, [])
 
     const values = {
         assets,
@@ -91,7 +109,8 @@ const Context = ({ children }) => {
         perPage,
         setPerPage,
         getCoinById,
-        coin
+        coin,
+        trending
     }
 
     return (

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { BiSolidUpArrow } from 'react-icons/bi';
 import { RxCross1 } from "react-icons/rx";
 import Chart from './Chart';
-import { FaDiscord, FaFacebook, FaGithub, FaReddit, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaReddit } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
 
 const Indicator = ({ currentPrice, high, low }) => {
