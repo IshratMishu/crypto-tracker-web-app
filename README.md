@@ -1,4 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CryptoTracker Web App 🌟
+
+A dynamic and responsive cryptocurrency tracking application built with **Next.js** and **Tailwind CSS**. The app provides real-time data on almost all cryptocurrencies, with functionalities like search, sort, filter, bookmarking, and interactive charts. It also features a trending page and supports currency conversion.
+
+---
+
+## 🛠 Features
+
+- **Real-Time Data**: Fetch live cryptocurrency data from the CoinGecko API.
+- **Search, Sort, and Filter**: Quickly find and organize cryptocurrencies.
+- **Trending Page**: Displays currently trending cryptocurrencies.
+- **Bookmarking**: Save cryptocurrencies to monitor their prices later.
+- **Interactive Charts**: Visualize data trends with beautiful and interactive charts using Recharts.
+- **Currency Conversion**: View prices in your local currency.
+- **Unique Design**: Sleek and modern UI with Tailwind CSS.
+- **Mobile Responsive**: Optimized for seamless performance on any device.
+
+---
+
+## 🚀 Tech Stack
+
+- **Next.js**: Framework for server-side rendering and building dynamic web applications.
+- **Tailwind CSS**: Utility-first CSS framework for designing responsive UI.
+- **Context API**: State management to share data across components.
+- **Recharts**: Library for creating customizable and interactive charts.
+- **CoinGecko API**: Fetch real-time cryptocurrency data.
+
+---
+
+## 📂 Folder Structure
+
+
 
 ## Getting Started
 
