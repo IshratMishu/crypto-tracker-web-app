@@ -1,6 +1,6 @@
 # [CryptoTracker Web App](https://crypto-tracker-ten-taupe.vercel.app/) 🌟
 
-A Crypto Tracker App using **Next.js** & **Tailwind CSS**. It shows details regarding almost all cryptocurrencies. You can easily convert the price in your local currency.
+A Crypto Tracker Web App using **Next.js** & **Tailwind CSS**. It shows details regarding almost all cryptocurrencies. You can easily convert the price in your local currency.
 
 **Live Link:** https://crypto-tracker-ten-taupe.vercel.app/
 
