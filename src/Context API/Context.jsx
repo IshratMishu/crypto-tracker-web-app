@@ -12,7 +12,7 @@ const Context = ({ children }) => {
     const [currency, setCurrency] = useState("usd");
     const [sortBy, setSortBy] = useState("market_cap_desc");
     const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(250);
+    const [totalPages, setTotalPages] = useState(1);
     const [perPage, setPerPage] = useState(10);
     const [coin, setCoin] = useState([]);
     const [trending, setTrending] = useState([]);

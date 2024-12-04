@@ -42,7 +42,7 @@ const CoinDetails = ({ coin, onClose }) => {
     }
     return (
         <div className='fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 max-w-screen-xl mx-auto'>
-            <div className='w-[65%] top-5 bg-[#212121] bg-opacity-80 rounded text-white relative'>
+            <div className='md:w-[75%] w-[90%] top-5 bg-[#212121] bg-opacity-80 rounded text-white relative max-h-[90vh] overflow-auto'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center gap-2 p-2'>
                         <Image width={50} height={50} src={coin.image.large} alt={coin.name} className='h-10 w-10'></Image>
@@ -53,9 +53,9 @@ const CoinDetails = ({ coin, onClose }) => {
                         onClick={onClose}
                         className="absolute top-1 right-1 hover:text-[--blue]"><RxCross1 /> </button>
                 </div>
-                <div className='flex gap-5 p-4 relative'>
+                <div className='flex flex-col lg:flex-row gap-5 p-4 relative'>
 
-                    <div className='w-[45%] h-full flex flex-col'>
+                    <div className='lg:w-[45%] w-full flex flex-col'>
                         <div className='flex items-center justify-between'>
                             <span className='text-sm text-[--gray-100]'>Price</span>
                             <span className={`text-xs font-medium rounded bg-opacity-25 px-1.5 py-0.5 flex items-center gap-1 ${coin.market_data.price_change_percentage_24h > 0 ? 'text-[--green] bg-[#37c77d]' : 'text-[--red] bg-[#e57373]'}`}>
@@ -65,7 +65,7 @@ const CoinDetails = ({ coin, onClose }) => {
                         <h2 className='text-xl font-bold pt-0.5'>{new Intl.NumberFormat('en-US', { style: 'currency', currency: currency, maximumSignificantDigits: 5 }).format(
                             coin.market_data.current_price[currency]
                         )}</h2>
-                        <div className='flex items-center justify-between mt-4'>
+                        <div className='flex md:flex-row flex-col md:items-center justify-between mt-4 md:space-y-0 space-y-2'>
                             <div>
                                 <span className='text-sm text-[--gray-100]'>Market Cap</span>
                                 <h2 className='font-semibold'>{new Intl.NumberFormat('en-US', { style: 'currency', currency: currency, minimumFractionDigits: 0 }).format(
@@ -149,15 +149,15 @@ const CoinDetails = ({ coin, onClose }) => {
                         </div>
                     </div>
 
-                    <div className='flex flex-col w-[55%] h-full' >
+                    <div className='flex flex-col lg:w-[55%] w-full' >
                         <Chart id={coin.id}></Chart>
-                        <div className='mt-4 text-sm space-y-2'>
+                        <div className='md:mt-8 mt-12 text-sm space-y-2'>
                             <h3 className='text-[--gray-100]'>Market Cap Rank: <span className='text-white font-medium'>{coin.market_cap_rank}</span></h3>
                             <h3 className='text-[--gray-100]'>Watchlist Portfolio Users: <span className='text-white font-medium'>{coin.watchlist_portfolio_users}</span></h3>
                         </div>
                     </div>
 
-                    <div className='flex items-center gap-3 absolute bottom-6 right-6 text-2xl text-[--blue]'>
+                    <div className='flex items-center gap-3 md:absolute bottom-6 right-6 text-2xl text-[--blue]'>
                         {
                             coin?.links?.repos_url?.github[0] &&
                             <a href={coin?.links?.repos_url?.github[0]} target='_blank'><FaGithub /></a>
@@ -181,7 +181,6 @@ const CoinDetails = ({ coin, onClose }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

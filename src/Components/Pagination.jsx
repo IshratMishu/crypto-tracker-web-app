@@ -1,6 +1,6 @@
 'use client'
 import useCryptoContext from '@/Hooks/useCryptoContext';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { FaCircleArrowLeft, FaCircleArrowRight } from "react-icons/fa6";
 import { MdNextPlan } from 'react-icons/md';
 
@@ -18,7 +18,7 @@ const PerPage = () => {
     }
 
     return (
-        <form className='flex items-center text-sm mr-6' onSubmit={handleSubmit}>
+        <form className='flex items-center text-sm mr-6 mx-auto' onSubmit={handleSubmit}>
             <label className='font-semibold'>Per Page:</label>
             <input type="number" name="page" min={1} max={200} placeholder='10' className='bg-[--gray-200] text-[gray-100] rounded pl-1 py-0.5 outline-0 w-10 border border-transparent focus:border-[--blue] ml-2' ref={inputRef} />
             <button type="submit"><MdNextPlan className='text-xl text-[--blue]' /></button>
@@ -66,9 +66,10 @@ const Pagination = () => {
 
 
     return (
-        <div className='flex gap-1 items-center list-none text-xs font-semibold text-white'>
+        <div className='flex md:flex-row flex-col md:space-y-0 space-y-4 list-none text-xs font-semibold text-white md:mt-0 mt-4'>
             <PerPage></PerPage>
-            <button onClick={prev}><FaCircleArrowLeft className='text-2xl text-[--blue]' /></button>
+          <div className='flex md:gap-1 gap-2 items-center'>
+          <button onClick={prev}><FaCircleArrowLeft className='text-2xl text-[--blue]' /></button>
             {page + 1 === TotalNumber || page === TotalNumber ?
                 <li><button onClick={multiStepPrev} className='text-lg hover:text-[--blue]'>...</button></li> : null
             }
@@ -93,8 +94,11 @@ const Pagination = () => {
             }
 
             <button onClick={next}><FaCircleArrowRight className='text-2xl text-[--blue]' /></button>
+          </div>
         </div>
     );
 };
+
+
 
 export default Pagination;

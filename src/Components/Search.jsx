@@ -25,7 +25,7 @@ const Search = () => {
 
     return (
         <div>
-            <form className='relative w-80'>
+            <form className='relative lg:w-80 w-full'>
                 <input type="text" name="search" placeholder='search...' className='bg-[--gray-200] text-[gray-100] rounded px-3 text-sm py-0.5 outline-0 border border-transparent focus:border-[--blue] w-full' onChange={handleSearch} value={searchText} />
                 <button type="submit" className='absolute right-2 top-1 text-[--blue]'>
                     <FaSearch />
