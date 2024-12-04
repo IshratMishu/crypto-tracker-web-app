@@ -18,6 +18,7 @@ const Context = ({ children }) => {
     const [trending, setTrending] = useState([]);
 
     const getApiAssets = async () => {
+       
         try {
             const response = await axios.get(`https://api.coingecko.com/api/v3/coins/list`, {
                 headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }
@@ -55,6 +56,7 @@ const Context = ({ children }) => {
 
 
     const getCoinById = async (coinId) => {
+        setCoin();
         try {
             const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=true&sparkline=false`, {
                 headers: { accept: 'application/json', 'x-cg-demo-api-key': process.env.NEXT_PUBLIC_CG_API_KEY }

@@ -4,7 +4,7 @@ import React from 'react';
 const Trendy = ({trend}) => {
     const {name, market_cap_rank, price_btc, score,large,small} = trend.item;
     return (
-        <div className='bg-[--gray-200] rounded p-4 hover:bg-[#808080] hover:bg-opacity-40 text-sm relative'>
+        <div className='bg-[--gray-200] rounded p-4 hover:bg-[#808080] hover:bg-opacity-40 text-sm relative w-[40%] mb-12 last:mb-0'>
             <h3 className='flex items-center gap-1'>
                 <span className='text-[--gray-100]'>Name:</span> 
                 <span className='text-[--blue]'>{name}</span>

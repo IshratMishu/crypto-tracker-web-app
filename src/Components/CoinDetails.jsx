@@ -17,7 +17,6 @@ const Indicator = ({ currentPrice, high, low }) => {
         setGreen(Math.ceil(greenZone))
     }, [currentPrice, high, low])
 
-
     return (
         <>
             <span className='bg-[--red] h-1.5 rounded-l-lg w-1/2' style={{ width: `${100 - green}%` }}>&nbsp;</span>
@@ -28,8 +27,19 @@ const Indicator = ({ currentPrice, high, low }) => {
 
 const CoinDetails = ({ coin, onClose }) => {
     const { currency } = useCryptoContext();
-    if (!coin) return null;
-
+    if (!coin) {
+        return (
+            <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50">
+                <div className="flex flex-col items-center justify-center h-64 text-white">
+                    <span>Loading...</span>
+                    <div className="relative w-10 h-10 flex items-center justify-center">
+                        <div className="w-5 h-5 animate-[ping_2s_linear_infinite] border rounded-full border-white"></div>
+                        <div className="w-5 h-5 animate-[ping_2s_linear_3s_infinite] border rounded-full border-white absolute"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className='fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50 max-w-screen-xl mx-auto'>
             <div className='w-[65%] top-5 bg-[#212121] bg-opacity-80 rounded text-white relative'>
@@ -43,7 +53,6 @@ const CoinDetails = ({ coin, onClose }) => {
                         onClick={onClose}
                         className="absolute top-1 right-1 hover:text-[--blue]"><RxCross1 /> </button>
                 </div>
-
                 <div className='flex gap-5 p-4 relative'>
 
                     <div className='w-[45%] h-full flex flex-col'>

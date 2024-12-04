@@ -9,7 +9,7 @@ const Trending = () => {
 
     return (
         <div>
-            <div className='border border-[--gray-100] rounded py-6 px-12 grid grid-cols-2 gap-10'>
+            <div className='border border-[--gray-100] rounded py-8 flex flex-wrap justify-evenly'>
                 {trending && trending.map(trend => <Trendy key={trend.item.id} trend={trend}></Trendy>)}
             </div>
 

@@ -1,21 +1,38 @@
 'use client'
 import useCryptoContext from '@/Hooks/useCryptoContext';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CiStar } from "react-icons/ci";
-// import Pagination from './Pagination';
-import dynamic from 'next/dynamic';
+import Pagination from './Pagination';
 import CoinDetails from './CoinDetails';
+import { StorageContext } from '@/Context API/StorageContext';
 
 
-const Pagination = dynamic(() => import('../Components/Pagination'), { ssr: false });
+const SavedBTN = ({ asset }) => {
+    const { saveCoin, allCoin, removeCoin } = useContext(StorageContext);
+
+    const handleSaved = (e) => {
+        e.preventDefault();
+        saveCoin(asset.id);
+
+        if(allCoin.includes(asset.id)){
+            removeCoin(asset.id);
+        }else{
+            saveCoin(asset.id);
+        }
+    }
+
+    return (
+        <CiStar onClick={(e) => handleSaved(e)} className={`${allCoin.includes(asset.id) ? 'text-[--blue]' : 'text-[--gray-100]'} text-2xl cursor-pointer hover:text-[--blue]`} />
+    )
+}
 
 const CryptoTable = () => {
     const { assets, currency, getCoinById, coin } = useCryptoContext();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = async (asset) => {
-        await getCoinById(asset.id); 
+        await getCoinById(asset.id);
         setIsModalOpen(true);
     };
 
@@ -60,7 +77,7 @@ const CryptoTable = () => {
                                         className="text-center border-b border-[--gray-100] hover:bg-[--gray-200] last:border-b-0"
                                     >
                                         <td className="py-4 flex items-center gap-2 uppercase text-white">
-                                            <CiStar className='text-2xl cursor-pointer text-[--gray-100] hover:text-[--blue]' />
+                                            <SavedBTN asset={asset} />
                                             <Image height={50} width={50} src={asset.image} alt={asset.name} className='w-5 h-5'></Image>
                                             <span className='cursor-pointer' onClick={() => handleOpenModal(asset)}>{asset.symbol}</span>
                                         </td>
@@ -92,9 +109,9 @@ const CryptoTable = () => {
             </div>
 
             {/* Modal */}
-      {isModalOpen && (
-        <CoinDetails coin={coin} onClose={handleCloseModal} />
-      )}
+            {isModalOpen && (
+                <CoinDetails coin={coin} onClose={handleCloseModal} />
+            )}
         </div>
     );
 };
