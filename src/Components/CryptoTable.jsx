@@ -104,7 +104,7 @@ const CryptoTable = () => {
                 </table>
             </div>
             <div className='flex md:flex-row flex-col items-center justify-between mt-5'>
-                <span className='text-white'>Data provided by <a className='text-[--blue]' target="_blank" rel="noopener noreferrer" href="https://www.coingecko.com/">CoinGecko</a></span>
+                <span className='text-white'>Data provided by <a className='text-[--blue]' target={"_blank"} href="https://www.coingecko.com/">CoinGecko</a></span>
                 <Pagination></Pagination>
             </div>
 

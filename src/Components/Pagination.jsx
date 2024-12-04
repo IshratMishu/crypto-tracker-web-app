@@ -20,7 +20,7 @@ const PerPage = () => {
     return (
         <form className='flex items-center text-sm mr-6 mx-auto' onSubmit={handleSubmit}>
             <label className='font-semibold'>Per Page:</label>
-            <input type="number" name="page" min={1} max={200} placeholder='10' className='bg-[--gray-200] text-[gray-100] rounded pl-1 py-0.5 outline-0 w-10 border border-transparent focus:border-[--blue] ml-2' ref={inputRef} />
+            <input type="text" name="page" placeholder='10' className='bg-[--gray-200] text-[gray-100] rounded pl-1 py-0.5 outline-0 w-10 border border-transparent focus:border-[--blue] ml-2' ref={inputRef} />
             <button type="submit"><MdNextPlan className='text-xl text-[--blue]' /></button>
         </form>
     )
@@ -66,31 +66,31 @@ const Pagination = () => {
 
 
     return (
-        <div className='flex md:flex-row flex-col md:space-y-0 space-y-4 list-none text-xs font-semibold text-white md:mt-0 mt-4'>
+        <div className='flex md:flex-row flex-col md:space-y-0 space-y-4 text-xs font-semibold text-white md:mt-0 mt-4'>
             <PerPage></PerPage>
-          <div className='flex md:gap-1 gap-2 items-center'>
+          <div className='flex gap-2 items-center'>
           <button onClick={prev}><FaCircleArrowLeft className='text-2xl text-[--blue]' /></button>
             {page + 1 === TotalNumber || page === TotalNumber ?
-                <li><button onClick={multiStepPrev} className='text-lg hover:text-[--blue]'>...</button></li> : null
+                <button onClick={multiStepPrev} className='text-lg hover:text-[--blue]'>...</button> : null
             }
 
             {page - 1 !== 0 ?
-                <li><button onClick={prev} className='bg-[--gray-200] w-7 h-7 rounded-full hover:text-[--blue]'>{page - 1}</button></li> : null
+                <button onClick={prev} className='bg-[--gray-200] w-7 h-7 rounded-full hover:text-[--blue]'>{page - 1}</button> : null
             }
 
-            <li><button disabled className='w-7 h-7 rounded-full text-black bg-[--blue]'>{page}</button></li>
+            <button disabled className='w-7 h-7 rounded-full text-black bg-[--blue]'>{page}</button>
 
             {page + 1 !== TotalNumber && page !== TotalNumber ?
-                <li><button onClick={next} className='bg-[--gray-200] w-7 h-7 rounded-full hover:text-[--blue]'>{page + 1}</button></li> : null
+               <button onClick={next} className='bg-[--gray-200] w-7 h-7 rounded-full hover:text-[--blue]'>{page + 1}</button> : null
             }
 
             {
                 page + 1 !== TotalNumber && page !== TotalNumber ?
-                    <li><button onClick={multiStepNext} className='text-lg hover:text-[--blue]'>...</button></li> : null
+                    <button onClick={multiStepNext} className='text-lg hover:text-[--blue]'>...</button> : null
             }
 
             {
-                page !== TotalNumber ? <li><button onClick={() => setPage(TotalNumber)} className='bg-[--gray-200] w-7 h-7 rounded-full hover:text-[--blue]'>{TotalNumber}</button></li> : null
+                page !== TotalNumber ? <button onClick={() => setPage(TotalNumber)} className='bg-[--gray-200] w-7 h-7 rounded-full hover:text-[--blue]'>{TotalNumber}</button> : null
             }
 
             <button onClick={next}><FaCircleArrowRight className='text-2xl text-[--blue]' /></button>

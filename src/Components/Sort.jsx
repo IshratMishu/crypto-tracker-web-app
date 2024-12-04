@@ -15,8 +15,8 @@ const Sort = () => {
 
     return (
         <div className='relative flex items-center gap-2 text-sm'>
-            <label className='font-semibold'>Sort by:</label>
-            <select name="sortby" className='bg-[--gray-200] text-[gray-100] outline-0 rounded px-3 py-0.5' onClick={handleSort} >
+            <label className='font-semibold md:w-auto w-[25%]'>Sort by:</label>
+            <select name="sortby" className='bg-[--gray-200] text-[gray-100] outline-0 rounded px-3 py-0.5 md:w-auto w-[75%]' onClick={handleSort} >
             <option value="market_cap_desc">Market Cap Desc</option>
             <option value="market_cap_asc">Market Cap Asc</option>
             <option value="volume_asc">Volume Asc</option>

@@ -34,7 +34,7 @@ const Search = () => {
 
             {
                 searchResults?.length > 0 ?
-                    <ul className='absolute top-2/5 w-80 h-80 rounded overflow-x-hidden mt-4 px-4 py-2 bg-[--gray-200] shadow-lg scrollbar-custom '>
+                    <ul className='absolute top-2/5 lg:w-80 md:w-fit w-[80%] h-80 rounded overflow-x-hidden mt-4 px-4 py-2 bg-[--gray-200] shadow-lg scrollbar-custom z-50'>
                         {searchResults?.map((coin) => (
                             <li key={coin.id} className="py-1 text-[--gray-100] flex items-center gap-1 cursor-pointer" onClick={() => handleSelectedCoin(coin.id)}>
                                 <Image

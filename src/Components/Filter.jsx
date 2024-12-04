@@ -14,7 +14,7 @@ const Filter = () => {
                 <Search></Search>
                 <Currency></Currency>
                 <Sort></Sort>
-                <BiReset onClick={resetFunction} className='text-2xl text-[--blue]' />
+                <BiReset onClick={resetFunction} className='text-2xl text-[--blue] cursor-pointer' />
             </div>
 
 
@@ -23,7 +23,7 @@ const Filter = () => {
                 <div className='flex items-center justify-between'>
                     <Currency></Currency>
                     <Sort></Sort>
-                    <BiReset onClick={resetFunction} className='text-2xl text-[--blue]' />
+                    <BiReset onClick={resetFunction} className='text-2xl text-[--blue] cursor-pointer' />
                 </div>
             </div>
 
@@ -31,7 +31,7 @@ const Filter = () => {
                 <Search></Search>
                 <div className='flex items-center justify-between'>
                     <Currency></Currency>
-                    <BiReset onClick={resetFunction} className='text-2xl text-[--blue]' />
+                    <BiReset onClick={resetFunction} className='text-2xl text-[--blue] cursor-pointer' />
                 </div>
                 <Sort></Sort>
             </div>
