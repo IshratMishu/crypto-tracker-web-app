@@ -1,20 +1,20 @@
 # CryptoTracker Web App 🌟
 
-A Crypto Tracker Web App using **Next.js** & **Tailwind CSS**. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.
+A Crypto Tracker App using **Next.js** & **Tailwind CSS**. It shows details regarding almost all cryptocurrencies. You can easily convert the price in your local currency.
 
-**Live Link:** https://crypto-tracker-ten-taupe.vercel.app/
+**Live Link:** [CryptoTracker](https://crypto-tracker-ten-taupe.vercel.app/)
 
 ---
 
 ## 🛠 Features
 
-- **Real-Time Data**: Fetch live cryptocurrency data by axios from the CoinGecko API.
+- **Real-Time Data**: Fetch live cryptocurrency data by Axios from the CoinGecko API.
 - **Search, Sort, and Filter**: Quickly find and organize cryptocurrencies.
 - **Trending Page**: Displays currently trending cryptocurrencies.
 - **Save**: Save cryptocurrencies to monitor their prices later.
 - **Interactive Charts**: Visualize data trends with beautiful and interactive charts using Recharts.
 - **Currency Conversion**: View prices in your local currency.
-- **Mobile Responsive**: Responsive for all device.
+- **Mobile Responsive**: Responsive for all devices.
 
 ---
 
@@ -31,6 +31,6 @@ A Crypto Tracker Web App using **Next.js** & **Tailwind CSS**. It shows detail r
 ## 📸 Screenshots
 
 ![Homepage Screenshot](public/image/ss1.png)
-<!-- ![Trending Page](public/screenshots/screenshot2.png)
-![Crypto Details Page](public/screenshots/screenshot3.png) -->
-
+<!-- Add more screenshots here if you wish -->
+<!-- ![Trending Page](public/screenshots/screenshot2.png) -->
+<!-- ![Crypto Details Page](public/screenshots/screenshot3.png) -->
