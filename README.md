@@ -28,9 +28,12 @@ A Crypto Tracker App using **Next.js** & **Tailwind CSS**. It shows details rega
 
 ---
 
-## 📸 Screenshots
+## 📸 Screen
 
-![Homepage Screenshot](public/image/ss1.png)
+![Homepage](public/image/ss1.png)
+![Crypto Details Page](public/image/ss4.png)
+![Trending Page](public/image/ss2.png)
+![Saved Page](public/image/ss3.png)
 <!-- Add more screenshots here if you wish -->
 <!-- ![Trending Page](public/screenshots/screenshot2.png) -->
 <!-- ![Crypto Details Page](public/screenshots/screenshot3.png) -->
